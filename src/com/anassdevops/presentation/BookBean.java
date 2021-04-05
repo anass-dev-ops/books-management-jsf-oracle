@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import com.anassdevops.entity.Book;
+import com.anassdevops.service.BookService;
+import com.anassdevops.service.BookServiceImp;
 
 @ManagedBean(name = "bookBean")
 @SessionScoped
@@ -22,6 +25,7 @@ public class BookBean implements Serializable{
 	private String author;
 	private String edition;
 	private ArrayList<Book> booksList;
+	private BookService bookService;
 
 	public BookBean() {
 		super();
@@ -36,10 +40,27 @@ public class BookBean implements Serializable{
 		this.author = author;
 		this.edition = edition;
 	}
+	
 	@PostConstruct
 	public void initBean() {
 		booksList = new ArrayList<Book>();
 	}
+	
+	// Actions
+	public void addBook(ActionEvent actionEvent) {
+		Book book = new Book();
+		book.setId(id);
+		book.setTitle(title);
+		book.setDescription(description);
+		book.setPrice(price);
+		book.setAuthor(author);
+		book.setEdition(edition);
+		//booksList.add(book);
+		bookService = new BookServiceImp();
+		bookService.addBook(book);
+	}
+	
+	// Getters And Setters
 
 	public Long getId() {
 		return id;
