@@ -5,11 +5,71 @@
 	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-		<title>Insert title here</title>
+		<title>Books Management V 1.2s</title>
+		<h:outputStylesheet name="/css/bootstrap.min.css"/>
+		<h:outputStylesheet name="/css/dashboard.css"/>
 	</h:head>
 	<h:body>
-		<h:outputText value="Testing ..."></h:outputText>
-		<h:inputText value="Test"></h:inputText>
-		Test
+		<!-- Start NavBar -->
+		<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+			<a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">My Books</a>
+			<ul class="navbar-nav px-3">
+				<li class="nav-item text-nowrap">
+				<a class="nav-link" href="#">Sign out</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- End NavBar -->
+		<div class="container-fluid">
+			<div class="row">
+				<!-- Start SideBar -->
+				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+				<div class="sidebar-sticky pt-3">
+					<ul class="nav flex-column">
+						<h:form class="nav-item">
+							<h:commandLink action="index.xhtml?faces-redirect=true" value="Books" class="nav-link active"></h:commandLink>
+						</h:form>
+						<h:form class="nav-item">
+							<h:commandLink action="addBook.xhtml?faces-redirect=true" value="Add Book" class="nav-link"></h:commandLink>
+						</h:form>
+						<h:form class="nav-item">
+							<h:commandLink action="index.xhtml?faces-redirect=true" value="Edit Book" class="nav-link"></h:commandLink>
+						</h:form>
+						<h:form class="nav-item">
+							<h:commandLink action="index.xhtml?faces-redirect=true" value="Dashboard" class="nav-link"></h:commandLink>
+						</h:form>
+					</ul>
+
+					<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+						<span>Saved reports</span>
+						<a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+							<span data-feather="plus-circle"></span>
+						</a>
+					</h6>
+					<ul class="nav flex-column mb-2">
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+							<span data-feather="file-text"></span>
+							Current month
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+							<span data-feather="file-text"></span>
+							Last quarter
+							</a>
+						</li>
+					</ul>
+				</div>
+				</nav>
+				<!-- End SideBar -->
+				
+				<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+					<!-- Start DashBoard Content -->
+					Content
+				</div>
+				
+			</div>
+		</div>
 	</h:body>
 </html>
