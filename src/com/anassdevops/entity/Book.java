@@ -14,7 +14,6 @@ public class Book implements Serializable{
 	
 	public Book() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Book(Long id, String title, String description, String price, String author, String edition) {
