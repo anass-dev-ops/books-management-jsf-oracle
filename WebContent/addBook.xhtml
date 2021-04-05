@@ -16,7 +16,9 @@
 						<h:form id="formBook" class="form">
 							<div class="form-group">
 								<h:outputLabel value="id" class="control-label"></h:outputLabel>
-								<h:inputText value="#{bookBean.id}" class="form-control"></h:inputText>
+								<h:inputText value="#{bookBean.id}" class="form-control" validatorMessage="Id is required">
+									<f:validateRequired></f:validateRequired>
+								</h:inputText>
 							</div>
 							<div class="form-group">
 								<h:outputLabel value="Title" class="control-label"></h:outputLabel>
@@ -38,7 +40,7 @@
 								<h:outputLabel value="Edition" class="control-label"></h:outputLabel>
 								<h:inputText value="#{bookBean.edition}" class="form-control"></h:inputText>
 							</div>
-							<h:commandButton actionListener="#{bookBean.addBook}" value="Sauvegarder" class="btn btn-success"></h:commandButton>
+							<h:commandButton action="#{bookBean.addBook()}" value="Sauvegarder" class="btn btn-success"></h:commandButton>
 							<h:commandButton action="index.xhtml?faces-redirect=true" value="Annuler" class="btn btn-outline-success mx-2"></h:commandButton>
 						</h:form>
 					</div>

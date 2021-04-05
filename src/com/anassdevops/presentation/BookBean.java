@@ -44,10 +44,12 @@ public class BookBean implements Serializable{
 	@PostConstruct
 	public void initBean() {
 		booksList = new ArrayList<Book>();
+		bookService = new BookServiceImp();
+		booksList = bookService.getBooks();
 	}
 	
 	// Actions
-	public void addBook(ActionEvent actionEvent) {
+	public String addBook() {
 		Book book = new Book();
 		book.setId(id);
 		book.setTitle(title);
@@ -58,6 +60,8 @@ public class BookBean implements Serializable{
 		//booksList.add(book);
 		bookService = new BookServiceImp();
 		bookService.addBook(book);
+		initBean();
+		return "index.xhtml?faces-redirect=true";
 	}
 	
 	// Getters And Setters
